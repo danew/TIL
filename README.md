@@ -8,3 +8,7 @@ Symbolic link to another file
 ## NPM init
 Initiate a new npm project without having to specify anything
 `npm init -y`
+
+## Remove all files in a directory except something
+`ls | grep -v <file> | xargs -L 1 rm -rf`
+

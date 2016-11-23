@@ -39,4 +39,7 @@ Using `less`, `less -N <file>`
 This is a really cool command, it allows you to watch a command and listen for changes.  
 For example sometihng as simple as watching the response from an API end point  
 `watch -d curl -s localhost:3000` where the `-s` option just removes the status bar (aka silent).  
-  
+
+### Find gateway and DNS
+DNS - `less /etc/resolv.conf`  
+GW - `less /etc/network/interfaces`

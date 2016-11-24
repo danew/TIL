@@ -43,3 +43,7 @@ For example sometihng as simple as watching the response from an API end point
 ### Find gateway and DNS
 DNS - `less /etc/resolv.conf`  
 GW - `less /etc/network/interfaces`
+
+### Install specific version with PIP
+`pip install <package>==<version>`  
+For example - `pip install ansible==2.1.0`

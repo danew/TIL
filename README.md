@@ -47,3 +47,6 @@ GW - `less /etc/network/interfaces`
 ### Install specific version with PIP
 `pip install <package>==<version>`  
 For example - `pip install ansible==2.1.0`
+
+### Setup networking on Centos 7
+GUI method - `nmtui`   

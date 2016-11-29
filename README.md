@@ -50,3 +50,11 @@ For example - `pip install ansible==2.1.0`
 
 ### Setup networking on Centos 7
 GUI method - `nmtui`   
+
+### Create a live USB
+First find the drive   
+OSX - `diskutil list`   
+Linux - `lsblk`   
+Now unmount the disk `umount /dev/disk`   
+`dd bs=1M if=<input image> of=<output disk>` - prefix the disk with r, for raw mode, for example   
+`dd bs=1M if=<input image> of=/dev/rdisk`

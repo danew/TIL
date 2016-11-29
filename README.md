@@ -55,6 +55,7 @@ GUI method - `nmtui`
 First find the drive   
 OSX - `diskutil list`   
 Linux - `lsblk`   
-Now unmount the disk `umount /dev/disk`   
+Now unmount the drive `umount /dev/disk`  
+Now copy the image to the disk with `dd`   
 `dd bs=1M if=<input image> of=<output disk>` - prefix the disk with r, for raw mode, for example   
 `dd bs=1M if=<input image> of=/dev/rdisk`

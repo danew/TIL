@@ -58,3 +58,7 @@ Linux - `lsblk`
 Now unmount the drive `umount /dev/disk`  
 Now copy the image to the disk with `dd`   
 `dd bs=1m if=<input image> of=<output disk>`
+
+### Listen to all traffic on a port
+`tcpdump -nni <interface> port <port>`   
+For example - `tcpdump -nni eth0 port 80`

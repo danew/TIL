@@ -62,3 +62,6 @@ Now copy the image to the disk with `dd`
 ### Listen to all traffic on a port
 `tcpdump -nni <interface> port <port>`   
 For example - `tcpdump -nni eth0 port 80`
+
+### Transfer your public RSA key to a remote host
+`cat ~/.ssh/id_rsa.pub | ssh <user>@<host> "cat >> ~/.ssh/authorized_keys"`

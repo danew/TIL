@@ -64,4 +64,5 @@ Now copy the image to the disk with `dd`
 For example - `tcpdump -nni eth0 port 80`
 
 ### Transfer your public RSA key to a remote host
-`cat ~/.ssh/id_rsa.pub | ssh <user>@<host> "cat >> ~/.ssh/authorized_keys"`
+`cat ~/.ssh/id_rsa.pub | ssh <user>@<host> "cat >> ~/.ssh/authorized_keys"`   
+You can also just use `ssh-copy-id <user>@<host>`, however, this isn't always installed.

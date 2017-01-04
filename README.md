@@ -66,3 +66,9 @@ For example - `tcpdump -nni eth0 port 80`
 ### Transfer your public RSA key to a remote host
 `cat ~/.ssh/id_rsa.pub | ssh <user>@<host> "cat >> ~/.ssh/authorized_keys"`   
 You can also just use `ssh-copy-id <user>@<host>`, however, this isn't always installed.
+
+### Completely cleanup all virtualbox/vagrant boxes on a host
+``` BASH
+VBoxManage list runningvms | cut -d \" -f2 | while read key; do echo `vboxmanage controlvm ${key} poweroff && vboxmanage unregistervm ${key} --delete`; done && vagrant global-status --prune
+```   
+> This only currently will work if the box is running

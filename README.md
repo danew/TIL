@@ -18,7 +18,9 @@ Multiple files `ls | grep -v -e <first file> -e <second file> | xargs -L 1 rm -r
 A strange artifact is created with OpenVZ, so lets remove it `rm -rf .cpt_hardlink_dir_*`
 
 ### Display tree structure of directory with only python dependency
-`find . -not -path '*/\.*' | python -c "import sys as s;s.a=[];[setattr(s,'a',list(filter(lambda p: c.startswith(p+'/'),s.a)))or (s.stdout.write(' '*len(s.a)+c[len(s.a[-1])+1 if s.a else 0:])or True) and s.a.append(c[:-1]) for c in s.stdin]"`
+``` BASH
+find . -not -path '*/\.*' | python -c "import sys as s;s.a=[];[setattr(s,'a',list(filter(lambda p: c.startswith(p+'/'),s.a)))or (s.stdout.write(' '*len(s.a)+c[len(s.a[-1])+1 if s.a else 0:])or True) and s.a.append(c[:-1]) for c in s.stdin]"
+```
 
 ### List all enviroment variables
 `printenv | less`

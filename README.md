@@ -74,3 +74,15 @@ You can also just use `ssh-copy-id <user>@<host>`, however, this isn't always in
 VBoxManage list runningvms | cut -d \" -f2 | while read key; do echo `vboxmanage controlvm ${key} poweroff && vboxmanage unregistervm ${key} --delete`; done && vagrant global-status --prune
 ```   
 > This only currently will work if the box is running
+
+### Extra, Edit, and Repack an ISO in Linux
+*Requirements*:
+- p7zip-full
+- mkisofs
+
+*Process*:
+1. Move the ISO into a new folder for extraction (I used `/tmp/iso`)
+2. Extract the ISOs contents `7z x <image>.iso` 
+3. Deleted the ISO `rm <image>.iso`
+4. Make your changes
+5. Repack the ISO `mkisofs -o <output name>.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V "CentOS 7.0 Custom ISO" .`

@@ -59,7 +59,10 @@ OSX - `diskutil list`
 Linux - `lsblk`   
 Now unmount the drive `umount /dev/disk`  
 Now copy the image to the disk with `dd`   
-`dd bs=1m if=<input image> of=<output disk>`
+`dd bs=1m if=<input image> of=<output disk>`   
+To provide process while `dd` is copying, you can either press `ctrl + T` or you can use `pv` (Pipe Viewer).   
+Now you can run `dd` like this: where -s specified the file size to provide a completion bar.   
+`dd if=/dev/sdb | pv -s 2G | dd of=DriveCopy1.dd bs=4096`
 
 ### Listen to all traffic on a port
 `tcpdump -nni <interface> port <port>`   

@@ -78,7 +78,7 @@ VBoxManage list runningvms | cut -d \" -f2 | while read key; do echo `vboxmanage
 ```   
 > This only currently will work if the box is running
 
-### Extra, Edit, and Repack an ISO in Linux
+### Extract, Edit, and Repack an ISO in Linux
 *Requirements*:
 - p7zip-full
 - mkisofs
@@ -89,3 +89,7 @@ VBoxManage list runningvms | cut -d \" -f2 | while read key; do echo `vboxmanage
 3. Deleted the ISO `rm <image>.iso`
 4. Make your changes
 5. Repack the ISO `mkisofs -o <output name>.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V "CentOS 7.0 Custom ISO" .`
+
+### Ping IP range
+`nmap -T5 -sP <ip start range>-<ip end range>`   
+For example - `nmap -T5 -sP 172.20.60.0-255`

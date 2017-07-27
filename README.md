@@ -93,3 +93,7 @@ VBoxManage list runningvms | cut -d \" -f2 | while read key; do echo `vboxmanage
 ### Ping IP range
 `nmap -T5 -sP <ip start range>-<ip end range>`   
 For example - `nmap -T5 -sP 172.20.60.0-255`
+
+### Remove all `.DS_Store` files
+Got a new git repo and accidently committed all the `.DS_Store` files in your project?
+`find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch && echo ".DS_Store" >> .gitignore`   

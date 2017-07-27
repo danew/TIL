@@ -95,5 +95,6 @@ VBoxManage list runningvms | cut -d \" -f2 | while read key; do echo `vboxmanage
 For example - `nmap -T5 -sP 172.20.60.0-255`
 
 ### Remove all `.DS_Store` files
-Got a new git repo and accidently committed all the `.DS_Store` files in your project?
+Got a new git repo? Did you accidently commit all the `.DS_Store` files in your project?   
+Here's a simple remedy:   
 `find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch && echo ".DS_Store" >> .gitignore`   

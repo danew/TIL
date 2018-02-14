@@ -98,3 +98,8 @@ For example - `nmap -T5 -sP 172.20.60.0-255`
 Got a new git repo? Did you accidently commit all the `.DS_Store` files in your project?   
 Here's a simple remedy:   
 `find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch && echo ".DS_Store" >> .gitignore`   
+
+### View Chrome Plugin Source 
+1. `extension_id=<id>`   
+2. `curl -L -o "$extension_id.zip" "https://clients2.google.com/service/update2/crx?response=redirect&os=mac&arch=x86-64&nacl_arch=x86-64&prod=chromecrx&prodchannel=stable&prodversion=44.0.2403.130&x=id%3D$extension_id%26uc"`    
+3. `unzip -d "$extension_id-source" "$extension_id.zip"`

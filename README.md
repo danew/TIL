@@ -105,6 +105,7 @@ Here's a simple remedy:
 3. `unzip -d "$extension_id-source" "$extension_id.zip"`
 
 ### jQuery in three lines
-```const $ = (selector) => document.querySelector(selector)
+```javascript
+const $ = (selector) => document.querySelector(selector)
 const $$ = (selector) => document.querySelectorAll(selector)
 const on = (elem, type, listener) => elem.addEventListener(type,listener)```

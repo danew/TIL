@@ -109,3 +109,13 @@ Here's a simple remedy:
 const $ = (selector) => document.querySelector(selector)
 const $$ = (selector) => document.querySelectorAll(selector)
 const on = (elem, type, listener) => elem.addEventListener(type,listener)```
+
+### Encrypt and Decrypt text with your rsa key
+```bash
+# create pem public key if you don't have one
+openssl rsa -in ~/.ssh/<your private rsa key> -pubout > ~/.ssh/<name>.pem
+# encrypt the text
+echo "text" | openssl rsautl -encrypt -pubin -inkey <public key>.pem > <cypher file>
+# decrypt the cypher
+openssl rsautl -decrypt -inkey ~/.ssh/<your private rsa key> -in <cypher file>
+```

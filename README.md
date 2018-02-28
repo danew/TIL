@@ -119,3 +119,16 @@ echo "text" | openssl rsautl -encrypt -pubin -inkey <public key>.pem > <cypher f
 # decrypt the cypher
 openssl rsautl -decrypt -inkey ~/.ssh/<your private rsa key> -in <cypher file>
 ```
+
+# Flexbox Elipsis
+```scss
+.heading {
+  flex: 1 1 auto;
+  height: 4rem;  
+  &, & > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+```

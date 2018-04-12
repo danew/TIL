@@ -118,9 +118,9 @@ openssl rsa -in ~/.ssh/<your private rsa key> -pubout > ~/.ssh/<name>.pem
 echo "text" | openssl rsautl -encrypt -pubin -inkey <public key>.pem > <cypher file>
 # decrypt the cypher
 openssl rsautl -decrypt -inkey ~/.ssh/<your private rsa key> -in <cypher file>
-```
+```   
 
-# Flexbox Elipsis
+### Flexbox Elipsis
 ```scss
 .heading {
   flex: 1 1 auto;
@@ -131,4 +131,8 @@ openssl rsautl -decrypt -inkey ~/.ssh/<your private rsa key> -in <cypher file>
     text-overflow: ellipsis;
   }
 }
-```
+```   
+
+### Format certificate file to 64 chars
+`fold -w 64`
+

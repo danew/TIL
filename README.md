@@ -136,3 +136,7 @@ openssl rsautl -decrypt -inkey ~/.ssh/<your private rsa key> -in <cypher file>
 ### Format certificate file to 64 chars
 `fold -w 64`
 
+### Download video streams
+First locate the `.m3u8` file in the network.   
+Install `ffmpeg`   
+Run `ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "https//file.com/viedo.m3u8" -c copy video.mp4`

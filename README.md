@@ -108,7 +108,8 @@ Here's a simple remedy:
 ```javascript
 const $ = (selector) => document.querySelector(selector)
 const $$ = (selector) => document.querySelectorAll(selector)
-const on = (elem, type, listener) => elem.addEventListener(type,listener)```
+const on = (elem, type, listener) => elem.addEventListener(type,listener)
+```
 
 ### Encrypt and Decrypt text with your rsa key
 ```bash
@@ -140,3 +141,16 @@ openssl rsautl -decrypt -inkey ~/.ssh/<your private rsa key> -in <cypher file>
 First locate the `.m3u8` file in the network.   
 Install `ffmpeg`   
 Run `ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "https//file.com/viedo.m3u8" -c copy video.mp4`
+
+### URI Token Replacement
+```javascript
+const parse = (uri, data) => template.replace(/\{(.*?)\}/g, (match, token) => data[token]);
+
+parse(
+  '/api/members/{user}/contact?msg={message}',
+  {
+    user: '1d1ab753-07d2-45d9-b901-54726fc4270e',
+    message: 'Hello, World!'
+  }
+)
+```

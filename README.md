@@ -144,7 +144,7 @@ Run `ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "https//file.c
 
 ### URI Token Replacement
 ```javascript
-const parse = (uri, data) => template.replace(/\{(.*?)\}/g, (match, token) => data[token]);
+const parse = (uri, data) => uri.replace(/\{(.*?)\}/g, (_, token) => data[token]);
 
 parse(
   '/api/members/{user}/contact?msg={message}',

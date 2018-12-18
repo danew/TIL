@@ -142,15 +142,15 @@ First locate the `.m3u8` file in the network.
 Install `ffmpeg`   
 Run `ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "https//file.com/viedo.m3u8" -c copy video.mp4`
 
-### URI Token Replacement
+### Token Replacement
 ```javascript
-const parse = (uri, data) => uri.replace(/\{(.*?)\}/g, (_, token) => data[token]);
+const interpolate = (str, data) => str.replace(/\{(.*?)\}/g, (_, token) => data[token]);
 
-parse(
-  '/api/members/{user}/contact?msg={message}',
+interpolate(
+  '{name} said {message}',
   {
-    user: '1d1ab753-07d2-45d9-b901-54726fc4270e',
+    user: 'Dane',
     message: 'Hello, World!'
   }
-)
+);
 ```

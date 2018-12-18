@@ -149,7 +149,7 @@ const interpolate = (str, data) => str.replace(/\{(.*?)\}/g, (_, token) => data[
 interpolate(
   '{name} said {message}',
   {
-    user: 'Dane',
+    name: 'Dane',
     message: 'Hello, World!'
   }
 );

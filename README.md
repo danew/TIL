@@ -154,3 +154,13 @@ interpolate(
   }
 );
 ```
+
+### Merge branch with a lot of changes
+When you first start a project, project stucture tends to change a lot. If you want to merge a feature branch into master, and take all of the new changes and leave the old ones behind do this. 
+```
+git checkout feature_branch
+git merge -s ours --no-commit master
+git commit -m "..."
+git checkout master
+git merge feature_branch
+```

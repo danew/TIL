@@ -164,3 +164,35 @@ git commit -m "..."
 git checkout master
 git merge feature_branch
 ```
+
+### Inline Markdown Images
+Instead of depending on a URL to always host an image, this utility will replace all markdown images and inline them as JPEGs.   
+```javasript
+const sharp = require('sharp');
+const fetch = require('node-fetch');
+
+const transformImage = url => {
+  return fetch(url)
+    .then(response => response.buffer())
+    .then(buffer => sharp(buffer)
+      .resize({ 
+        width: 600,
+      })
+      .toFormat('jpeg')
+      .toBuffer()
+    )
+    .then(buffer => buffer.toString("base64"));
+};
+
+const replaceAsync = async str => {
+  const rx = /!\[(.*?)\]\((.*?)\)/g;
+  const promises = [];
+  str.replace(rx, (_, name, url) => {
+      const promise = transformImage(url)
+        .then(data => `![${name}](data:image/jpeg;base64,${data})`);
+      promises.push(promise);
+  });
+  const data = await Promise.all(promises);
+  return str.replace(rx, () => data.shift());
+};
+```

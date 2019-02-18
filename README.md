@@ -167,7 +167,7 @@ git merge feature_branch
 
 ### Inline Markdown Images
 Instead of depending on a URL to always host an image, this utility will replace all markdown images and inline them as JPEGs.   
-```javasript
+```javascript
 const sharp = require('sharp');
 const fetch = require('node-fetch');
 

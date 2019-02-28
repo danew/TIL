@@ -204,13 +204,13 @@ let styles = [];
 
 Array.from(nodes).forEach(node => {
   const computedStyles = window.getComputedStyle(node);
-  if (/(Noir|Chronicle)/.test(computedStyles['font-family'])) {
-    styles.push({
-      family: computedStyles['font-family'].split('"')[1],
-      weight: computedStyles['font-weight'],
-      style: computedStyles['font-style'],
-    });
-  }
+  // if (/(<font-name>|<font-name>)/.test(computedStyles['font-family'])) {
+  styles.push({
+    family: computedStyles['font-family'].split('"')[1],
+    weight: computedStyles['font-weight'],
+    style: computedStyles['font-style'],
+  });
+  //}
 });
 
 stylesEqual = (current, next) => (

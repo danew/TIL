@@ -196,3 +196,32 @@ const replaceAsync = async str => {
   return str.replace(rx, () => data.shift());
 };
 ```
+
+### Get all font variations on a page
+```javascript
+const nodes = document.body.querySelectorAll('*');
+let styles = [];
+
+Array.from(nodes).forEach(node => {
+  const computedStyles = window.getComputedStyle(node);
+  if (/(Noir|Chronicle)/.test(computedStyles['font-family'])) {
+    styles.push({
+      family: computedStyles['font-family'].split('"')[1],
+      weight: computedStyles['font-weight'],
+      style: computedStyles['font-style'],
+    });
+  }
+});
+
+stylesEqual = (current, next) => (
+  current.family === next.family &&
+  current.weight === next.weight &&
+  current.style === next.style
+);
+
+styles = styles.reduce((acc, curr) => {
+  if (acc.some(next => stylesEqual(next, curr))) return acc;
+  return [ ...acc, curr ];
+}, []);
+
+```

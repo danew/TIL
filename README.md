@@ -227,7 +227,7 @@ styles = styles.reduce((acc, curr) => {
 ```
 
 ### Local Git Origin
-While developing with [Lerna](https://github.com/lerna/lerna) I found it valuable to use Verdaccio to test publishing of packages. Lerna also pushes a bunch of tags to origin which I wanted to avoid so I didn't have to rebase master and delete tags each time.   
+While developing with [Lerna](https://github.com/lerna/lerna) I found it valuable to use [Verdaccio](https://github.com/verdaccio/verdaccio) to test publishing of packages. Lerna also pushes a bunch of tags to origin which I wanted to avoid so I didn't have to rebase master and delete tags each time.   
 Git allows different type of remotes, including a repository on your local machine, here's how to set it up:   
 ```bash
 # Get your current origin

@@ -225,3 +225,21 @@ styles = styles.reduce((acc, curr) => {
 }, []);
 
 ```
+
+### Local Git Origin
+While developing with [Lerna](https://github.com/lerna/lerna) I found it valuable to use Verdaccio to test publishing of packages. Lerna also pushes a bunch of tags to origin which I wanted to avoid so I didn't have to rebase master and delete tags each time.   
+Git allows different type of remotes, including a repository on your local machine, here's how to set it up:   
+```bash
+# Get your current origin
+git remote -v 
+
+# Create a temporary repo
+mkdir -p ~/tmp/local
+cd ~/tmp/local
+git init
+
+# Add new origin
+git remote set-url origin ~/tmp/local
+git push -u origin master
+```
+Now you can use the local repository as a remote origin. You can do all your normaly operations in the temporary repository too.

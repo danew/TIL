@@ -243,3 +243,15 @@ git remote set-url origin ~/tmp/local
 git push -u origin master
 ```
 Now you can use the local repository as a remote origin. You can do all your normaly operations in the temporary repository too.
+
+### Create a timelapse from GoPro photos
+Make sure the directory contains only the photos you want to create a timelapse from, and that they are in order.   
+Rename files to a sequence starting from 00001
+```bash
+rename -N 00001 -e 's/.*/$N.JPG/' *.JPG
+```
+Convert the sequence of photos like 00001.JPG, 00002.JPG, etc. to a MP4.
+```bash
+ffmpeg -r 24 -pattern_type glob -i '*.JPG' -i %05d.JPG -s hd1080 -vcodec libx264 timelapse.mp4
+```
+This creates a 24fps 1080p MP4 video

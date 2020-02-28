@@ -257,7 +257,7 @@ ffmpeg -r 24 -pattern_type glob -i '*.JPG' -i %05d.JPG -s hd1080 -vcodec libx264
 This creates a 24fps 1080p MP4 video
 
 ### Read from Stdin for Node
-```
+```js
 #!/usr/bin/env node
 
 process.stdin.resume();

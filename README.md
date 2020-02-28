@@ -255,3 +255,19 @@ Convert the sequence of photos like 00001.JPG, 00002.JPG, etc. to a MP4.
 ffmpeg -r 24 -pattern_type glob -i '*.JPG' -i %05d.JPG -s hd1080 -vcodec libx264 timelapse.mp4
 ```
 This creates a 24fps 1080p MP4 video
+
+### Read from Stdin for Node
+```
+#!/usr/bin/env node
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let dataStream = '';
+process.stdin.on("data", input => (dataStream += input));
+process.stdin.on("end", () => processStream(dataStream));
+
+function processStream(data) {
+  ...
+}
+```

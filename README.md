@@ -271,3 +271,18 @@ function processStream(data) {
   ...
 }
 ```
+
+### Create JWT in Nodejs
+```js
+function createJwt(body: object) {  
+  const encode = (data: any) => Buffer.from(JSON.stringify(data)).toString('base64url');
+  const header = encode({
+    "alg": "HS256",
+    "typ": "JWT"
+  });
+  const body = encode(body);
+  const token = header + '.' + body;
+  const signature = crypto.createHmac('sha256', Buffer.from("secret")).update(token).digest().toString('base64url');
+  return token + "." + signature;
+}
+```

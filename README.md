@@ -286,3 +286,16 @@ function createJwt(body: object) {
   return token + "." + signature;
 }
 ```
+
+### Git worktree
+Allows you to checkout a new branch while you're working on another and don't want to commit/stash your changes.
+```sh
+# create
+git worktree add -b <branch-name> <location>
+
+# remove
+git worktree list
+
+git worktree remove <directory-name>
+git worktree prune
+```

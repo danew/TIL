@@ -299,3 +299,9 @@ git worktree list
 git worktree remove <directory-name>
 git worktree prune
 ```
+
+### Print a PDF
+[Reference](https://gist.github.com/andyrbell/25c8632e15d17c83a54602f6acde2724)
+```bash
+convert -density 130 input.pdf -rotate 0.2 -attenuate 0.2 +noise Multiplicative -colorspace Gray output.pdf
+```
